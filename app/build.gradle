@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+
+ext.DAGGER_VERSION = '2.5'
+ext.BUTTERKNIFE_VERSION = '8.8.1'
+ext.AUTO_VALUE_VERSION = '1.5'
+ext.AUTO_VALUE_GSON_VERSION = '0.4.2'
+ext.PROGRESS_VIEW_VERSION = "1.1.0"
+ext.SDK_VERSION = "28.0.0"
+ext.RETROFIT_VERSION = '2.4.0'
+ext.CONSTRAINT_LAYOUT_VERSION = "1.1.3"
+ext.OKHTTP_VERSION = "3.10.0"
+ext.TIMBER_VERSION = "4.3.0"
+ext.RX_ANDROID_VERSION = "2.0.2"
+ext.RX_JAVA_VERSION = "2.1.9"
+ext.AUTO_VALUE_PARCEL_VERSION = "0.2.5"
+ext.JAVA_POET_VERSION = "1.11.0"
+ext.GLASSFISH_ANNOTATION_VERSION = "10.0-b28"
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.nisala.androidboilerplate"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation "com.android.support:appcompat-v7:$SDK_VERSION"
+    implementation "com.android.support:design:$SDK_VERSION"
+    implementation "com.android.support:support-v4:$SDK_VERSION"
+    implementation "com.android.support.constraint:constraint-layout:$CONSTRAINT_LAYOUT_VERSION"
+
+    implementation "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    implementation "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"
+
+    def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    implementation "com.google.dagger:dagger:$DAGGER_VERSION"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    annotationProcessor daggerCompiler
+
+    implementation "com.squareup.okhttp3:okhttp:$OKHTTP_VERSION"
+    implementation "com.squareup.okhttp3:logging-interceptor:$OKHTTP_VERSION"
+
+    implementation "io.reactivex.rxjava2:rxandroid:$RX_ANDROID_VERSION"
+    implementation "io.reactivex.rxjava2:rxjava:$RX_JAVA_VERSION"
+
+    implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
+
+    implementation "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
+
+    compileOnly "com.jakewharton.auto.value:auto-value-annotations:$AUTO_VALUE_VERSION"
+    compileOnly "com.ryanharter.auto.value:auto-value-gson:$AUTO_VALUE_GSON_VERSION"
+
+    annotationProcessor "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
+    annotationProcessor "com.ryanharter.auto.value:auto-value-parcel:$AUTO_VALUE_PARCEL_VERSION"
+    annotationProcessor "com.ryanharter.auto.value:auto-value-gson:$AUTO_VALUE_GSON_VERSION"
+
+    annotationProcessor "com.squareup:javapoet:$JAVA_POET_VERSION"
+
+    //Progressbar
+    implementation "com.github.ybq:Android-SpinKit:$PROGRESS_VIEW_VERSION"
+
+    compileOnly "org.glassfish:javax.annotation:$GLASSFISH_ANNOTATION_VERSION"
+}

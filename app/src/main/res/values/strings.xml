@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AndroidBoilerplate</string>
+    <string name="error_invalid_api_key">Invalid api key.</string>
+    <string name="error_user_name_exist">Username already exist.</string>
+    <string name="error_email_exist">Email Address already exist.</string>
+    <string name="error_credential_not_match">Credentials do not match with our records.</string>
+    <string name="error_invalid_password">Invalid password. Please try again.</string>
+    <string name="error_unkown">Unknown error occurred.</string>
+    <string name="error_data_not_found">Data not found.</string>
+    <string name="error_user_not_found">User not found.</string>
+    <string name="error_email_not_match">Email Address does not match with our records.</string>
+    <string name="error_internal_server">Internal server error.</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">LogIn</string>
+</resources>
